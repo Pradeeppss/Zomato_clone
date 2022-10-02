@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "myfont";
+  src: url(Poppins-Medium.ttf);
+}
+* {
+  font-family: "myfont";
+}
+.bg-red {
+  background-color: #ce0505;
+}
+.font-blue {
+  color: #192f60;
+}
+.bgimage {
+  background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(79, 7, 7, 0.9)),
+    url(BG-img/BG-01.png);
+  background-position: center;
+  height: 65vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #eb2929;
+}
+.homepage-logo {
+  color: #eb2929;
+  font-size: 70px;
+  padding-bottom: 15px;
+  padding: 21px 41px;
+}
+.drop-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+/* .home-res-list {
+  display: none;
+} */
+.card-img {
+  object-fit: cover;
+  width: 40%;
+}
+.logo {
+  color: #eb2929;
+  padding-left: 7px;
+  padding-right: 5px;
+  padding-top: 3px;
+  height: 3rem;
+  width: 3rem;
+  font-size: 1.7rem;
+}
+.res-img {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+}
+
+.filters {
+  width: 15rem;
+  height: auto;
+}
+.detail-img {
+  height: 50vh;
+  width: 100%;
+  object-fit: cover;
+}
+.gallery-btn {
+  right: 5%;
+  bottom: 15%;
+  background-color: rgb(255, 255, 255, 0.7);
+}
+.red-border {
+  border: 3px #eb2929;
+  border-style: none none solid none;
+}
+.modal-img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+}
+.add-btn {
+  top: 65%;
+  /* right: 8%; */
+}
+.address {
+  color: #ce0505;
+  height: 10rem;
+}
+.hand {
+  cursor: pointer;
+}
+.font-small {
+  font-size: 0.6rem;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (min-width: 320px) and (max-width: 568px) {
+  .homepage-logo {
+    font-size: 2.4rem;
+    padding: 17px 27px;
+  }
+  .res-img {
+    width: 4rem;
+    height: 4rem;
+  }
+  .h3 {
+    font-size: 1rem;
+  }
+  .fs-small {
+    font-size: 0.6rem;
+  }
+}
