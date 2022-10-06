@@ -53,10 +53,6 @@
   object-fit: cover;
 }
 
-.filters {
-  width: 15rem;
-  height: auto;
-}
 .detail-img {
   height: 50vh;
   width: 100%;
@@ -89,6 +85,13 @@
 }
 .font-small {
   font-size: 0.6rem;
+}
+.modal-content {
+  width: 400px;
+}
+.account {
+  width: 220px;
+  border-radius: 3px;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (min-width: 320px) and (max-width: 568px) {
   .homepage-logo {

@@ -32,9 +32,14 @@ function Restaurantpage() {
   let [disabled, setdisabled] = useState(true);
   let gettokenDetails = () => {
     //read from localstorage
+    let customuser = localStorage.getItem("logindata");
     let token = localStorage.getItem("auth_token");
     if (token === null) {
-      return false;
+      if (customuser === null) {
+        return false;
+      } else {
+        return JSON.parse(customuser);
+      }
     } else {
       return jwt_decode(token);
     }
@@ -176,6 +181,7 @@ function Restaurantpage() {
   return (
     <>
       <Header color="bg-red" justify="justify-content-between" />
+      {/* modals */}
       <div
         className="modal fade"
         id="ordering"
@@ -299,12 +305,12 @@ function Restaurantpage() {
             </div>
             <div className="modal-body">
               <div className="d-flex flex-column pb-4">
-                <label className="form-label font-blue" htmlFor="name">
+                <label className="form-label font-blue" htmlFor="myname">
                   Name
                 </label>
                 <input
                   onChange={() => {}}
-                  id="name"
+                  id="myname"
                   readOnly={true}
                   value={userdetail.name}
                   className="form-control rounded-0"
@@ -313,12 +319,12 @@ function Restaurantpage() {
                 />
               </div>
               <div className="d-flex flex-column pb-4">
-                <label className="form-label font-blue" htmlFor="mobile">
+                <label className="form-label font-blue" htmlFor="emailaddress">
                   Email Address
                 </label>
                 <input
                   onChange={() => {}}
-                  id="mobile"
+                  id="emailaddress"
                   readOnly={true}
                   value={userdetail.email}
                   className="form-control rounded-0"
@@ -355,10 +361,72 @@ function Restaurantpage() {
           </div>
         </div>
       </div>
+      <div
+        className="modal fade"
+        id="carouselmodal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-body px-4">
+              <div
+                id="carouselExampleControls"
+                className="carousel slide"
+                data-bs-ride="carousel"
+              >
+                <div className="carousel-inner">
+                  {restaurant.thumb.map((images, index) => {
+                    return (
+                      <div key={index} className="carousel-item active">
+                        <img
+                          src={"./" + images}
+                          className="d-block w-100"
+                          alt="..."
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselExampleControls"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselExampleControls"
+                  data-bs-slide="next"
+                >
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span className="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <section className="row m-0 justify-content-center">
         <div className="col-11 py-5 position-relative">
           <img className="detail-img" src={"./" + restaurant.image} alt="" />
-          <button className="btn btn-light gallery-btn font-blue fw-bold position-absolute">
+          <button
+            referrerPolicy="no-referrer"
+            data-bs-toggle="modal"
+            data-bs-target="#carouselmodal"
+            className="btn btn-light gallery-btn font-blue fw-bold position-absolute"
+          >
             Click to see Image Gallery
           </button>
         </div>

@@ -9,6 +9,7 @@ function Filterpage() {
   let [locationlist, setlocationlist] = useState([]);
   let [filter, setfilter] = useState({ meal_type: meal_id, page: 1 });
   let [cuisine, setcuisine] = useState([]);
+  let [dProp, setdProp] = useState("");
 
   let getlocation = async () => {
     try {
@@ -75,6 +76,7 @@ function Filterpage() {
           }
         }
         if (value === "sub") {
+          console.log(_filter.page);
           if (_filter.page !== 1) {
             _filter["page"] = Number(_filter.page) - 1;
             break;
@@ -82,16 +84,22 @@ function Filterpage() {
             break;
           }
         }
-        _filter["page"] = value;
+        _filter["page"] = Number(value);
         break;
       default:
     }
     setfilter(_filter);
     filterOperation(filter);
-    console.log(filter);
   };
   let getrestaurantdetail = (res_id) => {
     navigate("/restaurant/" + res_id);
+  };
+  let toggleFilter = () => {
+    if (dProp === "") {
+      setdProp("d-none");
+    } else {
+      setdProp("");
+    }
   };
   useEffect(() => {
     filterOperation(filter);
@@ -101,10 +109,17 @@ function Filterpage() {
   return (
     <section className="container-md font-blue">
       <div className="h2 fw-bold py-4">Breakfast Places in Mumbai</div>
-      <section className="d-flex justify-content-between">
-        <div className="d-none d-sm-block">
-          <div className="filters shadow p-3 d-flex flex-column bg-dangr">
-            <div className="h6 fw-bold">Filters</div>
+      <section className="d-md-flex  justify-content-between">
+        <div className="  m-sm-5 my-3 m-md-0 shadow p-3 d-flex flex-column bg-dangr">
+          <div
+            onClick={() => toggleFilter()}
+            className="d-flex hand justify-content-between align-items-center "
+          >
+            <div className="h6 m-0 fw-bold">Filters</div>
+            <i className="fa fa-angle-down fw-bold d-md-none fs-4"></i>
+          </div>
+          <div className={dProp === "" ? " d-md-block d-none" : "d-md-block"}>
+            <hr />
             <div className="d-flex flex-column py-3">
               <label htmlFor="location" className="w-100">
                 Select Location
@@ -287,7 +302,7 @@ function Filterpage() {
             </div>
           </div>
         </div>
-        <div className="w-sm-75 w-100 d-flex flex-column px-sm-5 p-0">
+        <div className="w-sm-75 details w-100 d-flex flex-column px-sm-5 p-0">
           {restaurantlist.map((restaurant, index) => {
             return (
               <article
@@ -333,76 +348,76 @@ function Filterpage() {
               </article>
             );
           })}
-
-          <div className="row justify-content-center">
-            <div className="d-flex p-sm-5 col-11 col-sm-9 col-md-9 col-lg-6 justify-content-between">
-              <div>
-                <button
-                  value="sub"
-                  onClick={(event) => makefilteration(event, "page")}
-                  className="btn btn-outline-secondary"
-                >
-                  &lt;
-                </button>
-              </div>
-              <div>
-                <button
-                  value="1"
-                  onClick={(event) => makefilteration(event, "page")}
-                  className="btn btn-outline-secondary px-3"
-                >
-                  1
-                </button>
-              </div>
-              <div>
-                <button
-                  value="2"
-                  onClick={(event) => makefilteration(event, "page")}
-                  className="btn btn-outline-secondary"
-                >
-                  2
-                </button>
-              </div>
-              <div>
-                <button
-                  value="3"
-                  onClick={(event) => makefilteration(event, "page")}
-                  className="btn btn-outline-secondary"
-                >
-                  3
-                </button>
-              </div>
-              <div>
-                <button
-                  value="4"
-                  onClick={(event) => makefilteration(event, "page")}
-                  className="btn btn-outline-secondary"
-                >
-                  4
-                </button>
-              </div>
-              <div>
-                <button
-                  value="5"
-                  onClick={(event) => makefilteration(event, "page")}
-                  className="btn btn-outline-secondary"
-                >
-                  5
-                </button>
-              </div>
-              <div>
-                <button
-                  value="add"
-                  onClick={(event) => makefilteration(event, "page")}
-                  className="btn btn-outline-secondary"
-                >
-                  &gt;
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
+
+      <div className="row justify-content-center">
+        <div className="d-flex p-sm-4 col-11 col-sm-9 col-md-9 col-lg-6 justify-content-between">
+          <div>
+            <button
+              value="sub"
+              onClick={(event) => makefilteration(event, "page")}
+              className="btn btn-outline-secondary"
+            >
+              &lt;
+            </button>
+          </div>
+          <div>
+            <button
+              value="1"
+              onClick={(event) => makefilteration(event, "page")}
+              className="btn btn-outline-secondary px-3"
+            >
+              1
+            </button>
+          </div>
+          <div>
+            <button
+              value="2"
+              onClick={(event) => makefilteration(event, "page")}
+              className="btn btn-outline-secondary"
+            >
+              2
+            </button>
+          </div>
+          <div>
+            <button
+              value="3"
+              onClick={(event) => makefilteration(event, "page")}
+              className="btn btn-outline-secondary"
+            >
+              3
+            </button>
+          </div>
+          <div>
+            <button
+              value="4"
+              onClick={(event) => makefilteration(event, "page")}
+              className="btn btn-outline-secondary"
+            >
+              4
+            </button>
+          </div>
+          <div>
+            <button
+              value="5"
+              onClick={(event) => makefilteration(event, "page")}
+              className="btn btn-outline-secondary"
+            >
+              5
+            </button>
+          </div>
+          <div>
+            <button
+              value="add"
+              onClick={(event) => makefilteration(event, "page")}
+              className="btn btn-outline-secondary"
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

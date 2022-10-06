@@ -8,6 +8,7 @@ function Homeheader() {
   let navigate = useNavigate();
 
   let [restaurantlist, setrestaurantlist] = useState([]);
+  let [searchOutput, setsearchOutput] = useState([]);
   let [locationlist, setlocationlist] = useState([]);
   let [disabled, setdisabled] = useState(true);
   let getlocation = async () => {
@@ -33,18 +34,31 @@ function Homeheader() {
           if (data.output.length !== 0) {
             setdisabled(false);
             setrestaurantlist(data.output);
+            setsearchOutput(data.output);
           } else {
             setdisabled(true);
             setrestaurantlist([]);
+            setsearchOutput([]);
           }
         }
       } catch (error) {
         alert(error);
       }
+    } else {
+      setdisabled(true);
+      setrestaurantlist([]);
+      setsearchOutput([]);
     }
   };
   let gotorestaurant = (res_id) => {
     navigate("/restaurant/" + res_id);
+  };
+  let searchRes = (event) => {
+    let input = event.target.value.toUpperCase();
+    let resultList = restaurantlist.filter((restaurant) => {
+      return restaurant.name.toUpperCase().includes(input);
+    });
+    setsearchOutput(resultList);
   };
 
   useEffect(() => {
@@ -98,6 +112,7 @@ function Homeheader() {
               <i className="fa fa-search ps-2" aria-hidden="true"></i>
             </span>
             <input
+              onChange={searchRes}
               type="text"
               className="form-control h-100 p-3 rounded-0 border-0"
               placeholder="Search for restaurants"
@@ -106,7 +121,7 @@ function Homeheader() {
           </div>
           <div className="card bg-transparent home-res-list ms-md-3 mt-1 ms-lg-0">
             <ul className="list-group  list-group-flush">
-              {restaurantlist.map((restaurants, index) => {
+              {searchOutput.map((restaurants, index) => {
                 return (
                   <li key={index} className="list-group-item">
                     <div
