@@ -82,7 +82,7 @@ function Header(props) {
         Swal.fire({
           icon: "error",
           title: "Login Failed",
-          text: "Invalid credentials, Try again",
+          text: data.message + ", Try again",
         });
       } else {
         Swal.fire({

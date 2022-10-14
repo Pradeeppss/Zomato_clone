@@ -21,8 +21,8 @@ function Quicksearch() {
     }
   };
 
-  let getQuicksearchpage = (id) => {
-    navigate("/search/" + id);
+  let getQuicksearchpage = (id, name) => {
+    navigate("/search/" + id, { state: { mealtype: name } });
   };
 
   useEffect(() => {
@@ -47,7 +47,9 @@ function Quicksearch() {
             return (
               <section key={index} className="col-lg-4 col-sm-6 col-12 p-3 ">
                 <div
-                  onClick={() => getQuicksearchpage(mealtype.meal_type)}
+                  onClick={() =>
+                    getQuicksearchpage(mealtype.meal_type, mealtype.name)
+                  }
                   className="shadow hand d-flex "
                 >
                   <img

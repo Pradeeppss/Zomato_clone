@@ -11,6 +11,7 @@ function Homeheader() {
   let [searchOutput, setsearchOutput] = useState([]);
   let [locationlist, setlocationlist] = useState([]);
   let [disabled, setdisabled] = useState(true);
+
   let getlocation = async () => {
     try {
       let { data } = await axios.get("http://localhost:6001/api/get-location");
@@ -107,11 +108,12 @@ function Homeheader() {
           <div className="input-group m-lg-0 ms-md-3 mt-md-3">
             <span
               className="input-group-text pl-4 bg-white border-0 rounded-0"
-              id="basic-addon1"
+              id="basic-addon"
             >
               <i className="fa fa-search ps-2" aria-hidden="true"></i>
             </span>
             <input
+              id="dropdown"
               onChange={searchRes}
               type="text"
               className="form-control h-100 p-3 rounded-0 border-0"
@@ -123,11 +125,12 @@ function Homeheader() {
             <ul className="list-group  list-group-flush">
               {searchOutput.map((restaurants, index) => {
                 return (
-                  <li key={index} className="list-group-item">
-                    <div
-                      onClick={() => gotorestaurant(restaurants._id)}
-                      className="d-flex hand"
-                    >
+                  <li
+                    onClick={() => gotorestaurant(restaurants._id)}
+                    key={index}
+                    className="hand list-group-item"
+                  >
+                    <div className="d-flex ">
                       <img
                         className="drop-img rounded-circle"
                         src={"Images/" + restaurants.image}

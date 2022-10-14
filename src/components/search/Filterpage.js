@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 function Filterpage() {
   let navigate = useNavigate();
   // { meal_type, location, cuisine, hcost, lcost, sort, page }
@@ -10,6 +10,7 @@ function Filterpage() {
   let [filter, setfilter] = useState({ meal_type: meal_id, page: 1 });
   let [cuisine, setcuisine] = useState([]);
   let [dProp, setdProp] = useState("");
+  const { state } = useLocation();
 
   let getlocation = async () => {
     try {
@@ -40,9 +41,9 @@ function Filterpage() {
     }
   };
   let cuisineadding = (value) => {
-    let index = cuisine.indexOf(value);
+    let index = cuisine.indexOf(Number(value));
     if (index === -1) {
-      cuisine.unshift(value);
+      cuisine.unshift(Number(value));
     } else {
       cuisine.splice(index, 1);
     }
@@ -57,7 +58,11 @@ function Filterpage() {
         break;
       case "cuisine":
         cuisineadding(value);
-        filter["cuisine"] = cuisine;
+        if (cuisine.length === 0) {
+          delete _filter["cuisine"];
+          break;
+        }
+        _filter["cuisine"] = cuisine;
         break;
       case "sort":
         _filter["sort"] = value;
@@ -108,7 +113,7 @@ function Filterpage() {
 
   return (
     <section className="container-md font-blue">
-      <div className="h2 fw-bold py-4">Breakfast Places in Mumbai</div>
+      <div className="h2 fw-bold py-4">{state.mealtype} Places</div>
       <section className="d-md-flex  justify-content-between">
         <div className="  m-sm-5 my-3 m-md-0 shadow p-3 d-flex flex-column bg-dangr">
           <div

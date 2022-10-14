@@ -122,7 +122,7 @@ function Restaurantpage() {
     );
     var { order } = data;
     var options = {
-      key: "rzp_test_5b6976JrHYL0R8", // Enter the Key ID generated from the Dashboard
+      key: "rzp_test_nUftjVlE01TOBR", // Enter the Key ID generated from the Dashboard
       amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency: order.currency,
       name: "Zomato_clone",
