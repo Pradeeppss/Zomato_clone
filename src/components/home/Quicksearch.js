@@ -9,7 +9,9 @@ function Quicksearch() {
 
   let getmealtype = async () => {
     try {
-      let response = await axios.get("http://localhost:6001/api/mealtype");
+      let response = await axios.get(
+        "https://zomato-api-pradeep.herokuapp.com/api/mealtype"
+      );
       let data = response.data;
       if (data.status === true) {
         setMealtypelist([...data.output]); //spread operator for recreating array

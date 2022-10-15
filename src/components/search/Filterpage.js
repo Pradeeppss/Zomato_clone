@@ -14,7 +14,9 @@ function Filterpage() {
 
   let getlocation = async () => {
     try {
-      let { data } = await axios.get("http://localhost:6001/api/get-location");
+      let { data } = await axios.get(
+        "https://zomato-api-pradeep.herokuapp.com/api/get-location"
+      );
       if (data.status === true) {
         setlocationlist([...data.output]);
       } else {
@@ -25,7 +27,7 @@ function Filterpage() {
     }
   };
   let filterOperation = async (filter) => {
-    let URL = "http://localhost:6001/api/filter";
+    let URL = "https://zomato-api-pradeep.herokuapp.com/api/filter";
 
     try {
       let { data } = await axios.post(URL, filter);

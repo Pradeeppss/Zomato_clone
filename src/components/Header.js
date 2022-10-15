@@ -48,7 +48,7 @@ function Header(props) {
       newUser.Password !== ""
     ) {
       if (temp === newUser.Password) {
-        let URL = "http://localhost:6001/signup";
+        let URL = "https://zomato-api-pradeep.herokuapp.com/signup";
         let { data } = await axios.post(URL, newUser);
         console.log(data);
         if (data.status === false) {
@@ -71,7 +71,7 @@ function Header(props) {
   };
 
   let loginUser = async () => {
-    let URL = "http://localhost:6001/login";
+    let URL = "https://zomato-api-pradeep.herokuapp.com/login";
     if (
       newUser.name !== undefined &&
       newUser.name !== "" &&
@@ -387,13 +387,16 @@ function Header(props) {
                     referrerPolicy="no-referrer"
                     data-bs-toggle="modal"
                     data-bs-target="#loginmodal"
-                    className="rounded-circle bg-light hand mx-3"
+                    className="rounded-circle bg-secondary  hand mx-3"
                     src="../Images/assets/head2.png"
                     width="45px"
                   />
                 )}
 
-                <button onClick={logout} className="btn btn-outline-light">
+                <button
+                  onClick={logout}
+                  className="btn login-button btn-outline-light"
+                >
                   <i className="fa fa-sign-out" aria-hidden="true"></i>
                   Logout
                 </button>

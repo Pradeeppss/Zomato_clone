@@ -47,7 +47,8 @@ function Restaurantpage() {
   let [userdetail, setuserdetail] = useState(gettokenDetails());
 
   let getmenuitems = async (res_id) => {
-    let URL = "http://localhost:6001/api/getMenuitems/" + res_id;
+    let URL =
+      "https://zomato-api-pradeep.herokuapp.com/api/getMenuitems/" + res_id;
     try {
       let { data } = await axios.get(URL);
       let { status, output } = data;
@@ -84,7 +85,9 @@ function Restaurantpage() {
     setsubtotal(_subtotal);
   };
   let getrestaurantdetails = async () => {
-    let URL = "http://localhost:6001/api/getbyRestaurantID/" + res_id;
+    let URL =
+      "https://zomato-api-pradeep.herokuapp.com/api/getbyRestaurantID/" +
+      res_id;
     try {
       let { data } = await axios.get(URL);
       let { status, output } = data;
@@ -117,7 +120,7 @@ function Restaurantpage() {
     }
     var orderData = { total: subtotal };
     var { data } = await axios.post(
-      "http://localhost:6001/api/payment/genId/",
+      "https://zomato-api-pradeep.herokuapp.com/api/payment/genId/",
       orderData
     );
     var { order } = data;
@@ -137,7 +140,7 @@ function Restaurantpage() {
           signature: response.razorpay_signature,
         };
         var { data } = await axios.post(
-          "http://localhost:6001/api/payment/verify",
+          "https://zomato-api-pradeep.herokuapp.com/api/payment/verify",
           sendData
         );
         if (data.status === true) {

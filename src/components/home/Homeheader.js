@@ -14,7 +14,9 @@ function Homeheader() {
 
   let getlocation = async () => {
     try {
-      let { data } = await axios.get("http://localhost:6001/api/get-location");
+      let { data } = await axios.get(
+        "https://zomato-api-pradeep.herokuapp.com/api/get-location"
+      );
       if (data.status === true) {
         setlocationlist([...data.output]);
       } else {
@@ -28,7 +30,8 @@ function Homeheader() {
     let value = event.target.value;
     if (value !== "") {
       try {
-        let url = "http://localhost:6001/api/getbylocID/" + value;
+        let url =
+          "https://zomato-api-pradeep.herokuapp.com/api/getbylocID/" + value;
         let { data } = await axios.get(url);
         // console.log(data);
         if (data.status === true) {
