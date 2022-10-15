@@ -15,7 +15,7 @@
   background-image: linear-gradient(rgba(255, 0, 0, 0), rgba(79, 7, 7, 0.9)),
     url(BG-img/BG-01.png);
   background-position: center;
-  height: 65vh;
+  height: auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #eb2929;
@@ -107,5 +107,11 @@
   }
   .fs-small {
     font-size: 0.6rem;
+  }
+  .login-button {
+    font-size: smaller;
+  }
+  .big-title {
+    font-size: larger;
   }
 }

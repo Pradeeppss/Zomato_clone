@@ -80,9 +80,9 @@ function Homeheader() {
         </p>
       </div>
       {/* <!-- search bars --> */}
-      <div className="row m-1 justify-content-center">
+      <div className="row m-1 pb-3 justify-content-center">
         {/* <!-- location search --> */}
-        <div className="d-flex col-lg-3 col-sm-11 mb-2 mb-lg-0 ms-md-3 loca-search flex-column">
+        <div className="d-flex col-lg-3 col-sm-11 mb-1 mb-lg-0 ms-md-3 loca-search flex-column">
           <select
             ref={selectinput}
             onChange={getlocationid}
@@ -104,8 +104,8 @@ function Homeheader() {
         </div>
 
         {/* <!-- restaurant search --> */}
-        <div className="d-flex col-lg-5 col-sm-11 mt-3 mt-sm-0 me-md-3 flex-column">
-          <div className="input-group m-lg-0 ms-md-3 mt-md-3">
+        <div className="d-flex col-lg-5 col-sm-11 mt-1 mt-sm-0 me-md-3 flex-column">
+          <div className="input-group m-lg-0 ms-md-3 mt-md-1">
             <span
               className="input-group-text pl-4 bg-white border-0 rounded-0"
               id="basic-addon"

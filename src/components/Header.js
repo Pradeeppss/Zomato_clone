@@ -401,7 +401,7 @@ function Header(props) {
             ) : (
               <div>
                 <button
-                  className="btn my-2  text-light mx-4"
+                  className="btn my-2 login-button  text-light mx-1"
                   data-bs-toggle="modal"
                   data-bs-target="#loginmodal"
                 >
@@ -409,7 +409,7 @@ function Header(props) {
                 </button>
 
                 <button
-                  className="btn my-2  btn-outline-light"
+                  className="btn my-2 login-button btn-outline-light"
                   data-bs-toggle="modal"
                   data-bs-target="#signupmodal"
                 >
