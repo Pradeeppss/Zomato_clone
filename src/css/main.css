@@ -31,9 +31,11 @@
   height: 40px;
   object-fit: cover;
 }
-/* .home-res-list {
-  display: none;
-} */
+.home-res-list {
+  position: absolute;
+  width: 100%;
+  top: 100%;
+}
 .card-img {
   object-fit: cover;
   width: 40%;
@@ -74,7 +76,6 @@
 }
 .add-btn {
   top: 65%;
-  /* right: 8%; */
 }
 .address {
   color: #ce0505;

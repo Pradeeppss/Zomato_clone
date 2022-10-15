@@ -83,9 +83,9 @@ function Homeheader() {
         </p>
       </div>
       {/* <!-- search bars --> */}
-      <div className="row m-1 pb-3 justify-content-center">
+      <div className="row m-1 pb-3 justify-content-center align-items-center">
         {/* <!-- location search --> */}
-        <div className="d-flex col-lg-3 col-sm-11 mb-1 mb-lg-0 ms-md-3 loca-search flex-column">
+        <div className="d-flex p-0 mx-2 col-lg-3 col-sm-11 mb-1 mb-lg-0   flex-column">
           <select
             ref={selectinput}
             onChange={getlocationid}
@@ -107,8 +107,8 @@ function Homeheader() {
         </div>
 
         {/* <!-- restaurant search --> */}
-        <div className="d-flex col-lg-5 col-sm-11 mt-1 mt-sm-0 me-md-3 flex-column">
-          <div className="input-group m-lg-0 ms-md-3 mt-md-1">
+        <div className="d-flex position-relative col-lg-5 col-sm-11 mt-1 mt-lg-0 flex-column mx-2 p-0">
+          <div className="input-group ">
             <span
               className="input-group-text pl-4 bg-white border-0 rounded-0"
               id="basic-addon"
@@ -124,8 +124,8 @@ function Homeheader() {
               disabled={disabled}
             />
           </div>
-          <div className="card bg-transparent home-res-list ms-md-3 mt-1 ms-lg-0">
-            <ul className="list-group  list-group-flush">
+          <div className="card bg-transparent home-res-list  mt-1 ms-lg-0">
+            <ul className="list-group rounded-0 list-group-flush">
               {searchOutput.map((restaurants, index) => {
                 return (
                   <li
