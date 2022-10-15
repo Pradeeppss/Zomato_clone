@@ -40,7 +40,7 @@ function Quicksearch() {
           </p>
         </div>
         <div className="row">
-          <p className="h5 col-12 py-2 col-sm-10 text-secondary">
+          <p className="h5 big-title col-12 py-2 col-sm-10 text-secondary">
             Discover restaurants by type of meal
           </p>
         </div>
