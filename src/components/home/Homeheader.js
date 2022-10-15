@@ -85,7 +85,7 @@ function Homeheader() {
       {/* <!-- search bars --> */}
       <div className="row m-1 pb-3 justify-content-center align-items-center">
         {/* <!-- location search --> */}
-        <div className="d-flex p-0 mx-2 col-lg-3 col-sm-11 mb-1 mb-lg-0   flex-column">
+        <div className="d-flex p-0 mx-2 col-lg-3 col-sm-11 mb-1 mb-lg-0 flex-column">
           <select
             ref={selectinput}
             onChange={getlocationid}
