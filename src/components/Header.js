@@ -48,7 +48,7 @@ function Header(props) {
       newUser.Password !== ""
     ) {
       if (temp === newUser.Password) {
-        let URL = "https://zomato-api-pradeep.herokuapp.com/signup";
+        let URL = "https://zomatoapi.up.railway.app/signup";
         let { data } = await axios.post(URL, newUser);
         console.log(data);
         if (data.status === false) {
@@ -71,7 +71,7 @@ function Header(props) {
   };
 
   let loginUser = async () => {
-    let URL = "https://zomato-api-pradeep.herokuapp.com/login";
+    let URL = "https://zomatoapi.up.railway.app/login";
     if (
       newUser.name !== undefined &&
       newUser.name !== "" &&

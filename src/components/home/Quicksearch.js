@@ -10,7 +10,7 @@ function Quicksearch() {
   let getmealtype = async () => {
     try {
       let response = await axios.get(
-        "https://zomato-api-pradeep.herokuapp.com/api/mealtype"
+        "https://zomatoapi.up.railway.app/api/mealtype"
       );
       let data = response.data;
       if (data.status === true) {

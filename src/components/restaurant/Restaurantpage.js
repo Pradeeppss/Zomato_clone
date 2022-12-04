@@ -47,8 +47,7 @@ function Restaurantpage() {
   let [userdetail, setuserdetail] = useState(gettokenDetails());
 
   let getmenuitems = async (res_id) => {
-    let URL =
-      "https://zomato-api-pradeep.herokuapp.com/api/getMenuitems/" + res_id;
+    let URL = "https://zomatoapi.up.railway.app/api/getMenuitems/" + res_id;
     try {
       let { data } = await axios.get(URL);
       let { status, output } = data;
@@ -86,8 +85,7 @@ function Restaurantpage() {
   };
   let getrestaurantdetails = async () => {
     let URL =
-      "https://zomato-api-pradeep.herokuapp.com/api/getbyRestaurantID/" +
-      res_id;
+      "https://zomatoapi.up.railway.app/api/getbyRestaurantID/" + res_id;
     try {
       let { data } = await axios.get(URL);
       let { status, output } = data;
@@ -112,6 +110,7 @@ function Restaurantpage() {
     };
     window.document.body.appendChild(script);
   };
+
   let makePayment = async () => {
     let isLoaded = await loadScript();
     if (isLoaded === true) {
@@ -120,7 +119,7 @@ function Restaurantpage() {
     }
     var orderData = { total: subtotal };
     var { data } = await axios.post(
-      "https://zomato-api-pradeep.herokuapp.com/api/payment/genId/",
+      "https://zomatoapi.up.railway.app/api/payment/genId/",
       orderData
     );
     var { order } = data;
@@ -140,9 +139,10 @@ function Restaurantpage() {
           signature: response.razorpay_signature,
         };
         var { data } = await axios.post(
-          "https://zomato-api-pradeep.herokuapp.com/api/payment/verify",
+          "https://zomatoapi.up.railway.app/api/payment/verify",
           sendData
         );
+        console.log(data);
         if (data.status === true) {
           Swal.fire({
             icon: "success",
