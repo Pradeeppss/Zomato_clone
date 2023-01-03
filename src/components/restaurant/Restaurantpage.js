@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "../Header";
 import Swal from "sweetalert2";
